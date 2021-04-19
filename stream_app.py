@@ -1,6 +1,8 @@
 import streamlit as st
 import cv2 as cv
 import base64
+import test
+import test2
 
 
 def app():
@@ -55,9 +57,9 @@ def app():
     c1, c2, c3, c4, c5 = st.beta_columns((1, 1, 1.2, 1, 1))
 
     if c3.button("Create Dataset"):
-        c3.success("Dataset Created")
+        test.run()
     if c3.button("Recognize + Attendance"):
-        c3.success("Attendance Marked")
+        test2.run()
     if c3.button("Attendance Sheet"):
         c3.success("Displaying Attendance Sheet")
 
