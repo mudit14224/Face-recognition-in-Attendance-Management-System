@@ -1,6 +1,9 @@
 import streamlit as st
 import cv2 as cv
 import base64
+import Att
+import Register
+import pandas as pd
 
 
 def app():
@@ -54,14 +57,27 @@ def app():
 
     c1, c2, c3, c4, c5 = st.beta_columns((1, 1, 1.2, 1, 1))
 
-    if c3.button("Create Dataset"):
-        c3.success("Dataset Created")
-    if c3.button("Train Dataset"):
-        c3.success("ML Model Trained")
+    if c3.button("Register + Train"):
+        Register.run()
     if c3.button("Recognize + Attendance"):
-        c3.success("Attendance Marked")
-    if c3.button("Attendance Sheet"):
-        c3.success("Displaying Attendance Sheet")
+        Att.run()
+
+    def get_table_download_link(df):
+        """Generates a link allowing the data in a given panda dataframe to be downloaded
+            in:  dataframe
+            out: href string
+            """
+        csv = df.to_csv(index=False)
+        b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+        href = f'<a href="data:file/csv;base64,{b64}" download="Attendance.csv">Download csv file</a>'
+        return href
+
+    att = c3.button("Display Attendance Sheet")
+    if att:
+        date = c3.text_input("Date", "13-04-2021")
+        sheet_path = 'Attendance/Attendance_' + str(date) + ".csv"
+        file = pd.read_csv(sheet_path)
+        c3.markdown(get_table_download_link(file), unsafe_allow_html=True)
 
     # set_jpg_as_sidebar_bg('Images/sb.jpeg')
 
