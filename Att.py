@@ -12,8 +12,9 @@ import pandas as pd
 import datetime
 import time
 
-#Functions===========================================================
 def run():
+    #Functions===========================================================
+
     #AskforQUIT
     def on_closing():
         if mess.askyesno("Quit", "You are exiting window.Do you want to quit?"):
@@ -24,7 +25,7 @@ def run():
 
     #about
     def about():
-        mess._show(title="About",message="This Attendance System is designed by Mahima, Charvy, Mudit")
+        mess._show(title="About",message="This Attendance System is designed by Mahima, Charvy and Mudit")
 
     #clearbutton
     def clear():
@@ -324,10 +325,10 @@ def run():
     #Front End===========================================================
 
     window = tkinter.Tk()
-    window.title("Face Recognition Based Attendance System")
-    window.geometry("1280x720")
+    window.title("Facial Recognition in Attendance Management System")
+    window.geometry("800x650")
     window.resizable(True,True)
-    window.configure(background='#355454')
+    window.configure(background='#f7b6ab')
 
     #Help menubar----------------------------------------------
     menubar=Menu(window)
@@ -344,81 +345,27 @@ def run():
     #This line will attach our menu to window
     window.config(menu=menubar)
 
-    #main window------------------------------------------------
-    message3 = tkinter.Label(window, text="Face Recognition Based Attendance System" ,fg="white",bg="#355454" ,width=60 ,height=1,font=('times', 29, ' bold '))
-    message3.place(x=10, y=10,relwidth=1)
-
     #frames-------------------------------------------------
-    # frame1 = tkinter.Frame(window, bg="white")
-    # frame1.place(relx=0.11, rely=0.15, relwidth=0.39, relheight=0.80)
 
     frame2 = tkinter.Frame(window, bg="white")
-    frame2.place(relx=0.51, rely=0.15, relwidth=0.39, relheight=0.80)
+    frame2.place(relx=0.20, rely=0.10, relwidth=0.63, relheight=0.77)
 
     #frame_headder
-    # fr_head1 = tkinter.Label(frame1, text="Register New Student", fg="white",bg="black" ,font=('times', 17, ' bold ') )
-    # fr_head1.place(x=0,y=0,relwidth=1)
 
-    fr_head2 = tkinter.Label(frame2, text="Mark Student's attendance", fg="white",bg="black" ,font=('times', 17, ' bold ') )
+    fr_head2 = tkinter.Label(frame2, text="Mark Attendance", fg="white",bg="black" ,font=('times', 17, ' bold ') )
     fr_head2.place(x=0,y=0,relwidth=1)
 
-    # #registretion frame
-    # lbl = tkinter.Label(frame1, text="Enter ID",width=20  ,height=1  ,fg="black"  ,bg="white" ,font=('times', 17, ' bold ') )
-    # lbl.place(x=0, y=55)
-    #
-    # txt = tkinter.Entry(frame1,width=32 ,fg="black",bg="#e1f2f2",highlightcolor="#00aeff",highlightthickness=3,font=('times', 15, ' bold '))
-    # txt.place(x=55, y=88,relwidth=0.75)
-    #
-    # lbl2 = tkinter.Label(frame1, text="Enter Name",width=20  ,fg="black"  ,bg="white" ,font=('times', 17, ' bold '))
-    # lbl2.place(x=0, y=140)
-    #
-    # txt2 = tkinter.Entry(frame1,width=32 ,fg="black",bg="#e1f2f2",highlightcolor="#00aeff",highlightthickness=3,font=('times', 15, ' bold ')  )
-    # txt2.place(x=55, y=173,relwidth=0.75)
-    #
-    # message0=tkinter.Label(frame1,text="Follow the steps...",bg="white" ,fg="black"  ,width=39 ,height=1,font=('times', 16, ' bold '))
-    # message0.place(x=7,y=275)
-    #
-    # message1 = tkinter.Label(frame1, text="1)Take Images  ===> 2)Save Profile" ,bg="white" ,fg="black"  ,width=39 ,height=1, activebackground = "yellow" ,font=('times', 15, ' bold '))
-    # message1.place(x=7, y=300)
-    #
-    # message = tkinter.Label(frame1, text="" ,bg="white" ,fg="black"  ,width=39,height=1, activebackground = "yellow" ,font=('times', 16, ' bold '))
-    # message.place(x=7, y=500)
     #Attendance frame
     lbl3 = tkinter.Label(frame2, text="Attendance Table",width=20  ,fg="black"  ,bg="white"  ,height=1 ,font=('times', 17, ' bold '))
-    lbl3.place(x=100, y=115)
+    lbl3.place(x=90, y=115)
 
-    # #Display total registration----------
-    # res=0
-    # exists = os.path.isfile("StudentDetails\StudentDetails.csv")
-    # if exists:
-    #     with open("StudentDetails\StudentDetails.csv", 'r') as csvFile1:
-    #         reader1 = csv.reader(csvFile1)
-    #         for l in reader1:
-    #             res = res + 1
-    #     res = (res // 2) - 1
-    #     csvFile1.close()
-    # else:
-    #     res = 0
-    # message.configure(text='Total Registrations : '+str(res))
 
     #BUTTONS----------------------------------------------
-
-    # clearButton = tkinter.Button(frame1, text="Clear", command=clear, fg="white", bg="#13059c", width=11, activebackground = "white", font=('times', 12, ' bold '))
-    # clearButton.place(x=55, y=230,relwidth=0.29)
-    #
-    # takeImg = tkinter.Button(frame1, text="Take Images", command=TakeImages, fg="black", bg="#00aeff", width=34, height=1, activebackground = "white", font=('times', 16, ' bold '))
-    # takeImg.place(x=30, y=350,relwidth=0.89)
-    #
-    # trainImg = tkinter.Button(frame1, text="Save Profile", command=psw, fg="black", bg="#00aeff", width=34, height=1, activebackground = "white", font=('times', 16, ' bold '))
-    # trainImg.place(x=30, y=430,relwidth=0.89)
-
-    trackImg = tkinter.Button(frame2, text="Take Attendance", command=TrackImages, fg="black", bg="#00aeff", height=1, activebackground = "white" ,font=('times', 16, ' bold '))
+    trackImg = tkinter.Button(frame2, text="Take Attendance", command=TrackImages, fg="black", bg="#f53b57", height=1, activebackground = "white" ,font=('times', 16, ' bold '))
     trackImg.place(x=30,y=60,relwidth=0.89)
 
-    quitWindow = tkinter.Button(frame2, text="Quit", command=window.destroy, fg="white", bg="#13059c", width=35, height=1, activebackground = "white", font=('times', 16, ' bold '))
-    quitWindow.place(x=30, y=450,relwidth=0.89)
-
-
+    quitWindow = tkinter.Button(frame2, text="Quit", command=window.destroy, fg="white", bg="#000000", width=10, height=1, activebackground = "white", font=('times', 16, ' bold '))
+    quitWindow.place(x=100, y=450,relwidth=0.59)
 
     #Attandance table----------------------------
     style = ttk.Style()
