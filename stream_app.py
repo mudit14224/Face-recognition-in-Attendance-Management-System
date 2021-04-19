@@ -56,8 +56,6 @@ def app():
 
     if c3.button("Create Dataset"):
         c3.success("Dataset Created")
-    if c3.button("Train Dataset"):
-        c3.success("ML Model Trained")
     if c3.button("Recognize + Attendance"):
         c3.success("Attendance Marked")
     if c3.button("Attendance Sheet"):
